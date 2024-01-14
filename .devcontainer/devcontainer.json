@@ -1,13 +1,18 @@
 {
-    "image": "ghcr.io/zephyrproject-rtos/zephyr-build:latest",
+    //"image": "ghcr.io/zephyrproject-rtos/zephyr-build:latest",
+    "build": {
+      "dockerfile": "Dockerfile"
+    },
     "forwardPorts": [3000],
     "customizations": {
       // Configure properties specific to VS Code.
       "vscode": {
         // Add the IDs of extensions you want installed when the container is created.
         "extensions": [
-            "streetsidesoftware.code-spell-checker",
-            "ms-vscode.cpptools-extension-pack"
+          "streetsidesoftware.code-spell-checker",
+          "ms-vscode.cpptools-extension-pack",
+          "mhutchie.git-graph",
+          "ms-azuretools.vscode-docker"
         ]
       }
     }
