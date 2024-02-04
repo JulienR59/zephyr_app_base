@@ -1,19 +1,21 @@
 {
-    //"image": "ghcr.io/zephyrproject-rtos/zephyr-build:latest",
-    "build": {
-      "dockerfile": "Dockerfile"
-    },
-    "forwardPorts": [3000],
-    "customizations": {
-      // Configure properties specific to VS Code.
-      "vscode": {
-        // Add the IDs of extensions you want installed when the container is created.
-        "extensions": [
-          "streetsidesoftware.code-spell-checker",
-          "ms-vscode.cpptools-extension-pack",
-          "mhutchie.git-graph",
-          "ms-azuretools.vscode-docker"
-        ]
-      }
+  "image": "ghcr.io/zephyrproject-rtos/zephyr-build:latest",
+
+  "forwardPorts": [3000],
+  "customizations": {
+    // Configure properties specific to VS Code.
+    "vscode": {
+      // Add the IDs of extensions you want installed when the container is created.
+      "extensions": [
+        "streetsidesoftware.code-spell-checker",
+        "ms-vscode.cpptools-extension-pack",
+        "mhutchie.git-graph",
+        "ms-azuretools.vscode-docker",
+        "trond-snekvik.kconfig-lang",
+        "trond-snekvik.devicetree"
+      ]
     }
-  }
+  },
+  "postCreateCommand": "cd /workdir && west init && west update && cd zephyr && source zephyr-env.sh",
+  "postAttachCommand": "cat /workdir/zephyr/VERSION"
+}
