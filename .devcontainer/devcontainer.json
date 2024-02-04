@@ -12,10 +12,14 @@
         "mhutchie.git-graph",
         "ms-azuretools.vscode-docker",
         "trond-snekvik.kconfig-lang",
-        "trond-snekvik.devicetree"
+        "trond-snekvik.devicetree",
+        "ms-vscode.vscode-serial-monitor"
       ]
     }
   },
-  "postCreateCommand": "sudo apt install usbutils && cd /workdir && west init && west update && cd zephyr && source zephyr-env.sh",
-  "postAttachCommand": "cat /workdir/zephyr/VERSION"
+  "postCreateCommand": "sudo apt update && sudo apt install usbutils && cd /workdir && west init && west update && cd zephyr && source zephyr-env.sh",
+  "postAttachCommand": "cat /workdir/zephyr/VERSION",
+
+  "mounts": [{"source": "/dev", "target": "/dev", "type": "bind"}],
+  "runArgs": ["--group-add=dialout"]
 }
