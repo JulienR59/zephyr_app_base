@@ -16,6 +16,6 @@
       ]
     }
   },
-  "postCreateCommand": "cd /workdir && west init && west update && cd zephyr && source zephyr-env.sh",
+  "postCreateCommand": "sudo apt install usbutils && cd /workdir && west init && west update && cd zephyr && source zephyr-env.sh",
   "postAttachCommand": "cat /workdir/zephyr/VERSION"
 }

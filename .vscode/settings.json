@@ -1,0 +1,4 @@
+{
+    "C_Cpp.default.compilerPath": "/opt/toolchains/zephyr-sdk-0.16.5/arm-zephyr-eabi/bin/arm-zephyr-eabi-gcc",
+    "cmake.configureOnOpen": false
+}
