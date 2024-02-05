@@ -1,5 +1,7 @@
 {
-  "image": "ghcr.io/zephyrproject-rtos/zephyr-build:latest",
+  "dockerFile": "Dockerfile",
+
+  //"image": "ghcr.io/zephyrproject-rtos/zephyr-build:latest",
 
   "forwardPorts": [3000],
   "customizations": {
@@ -11,15 +13,15 @@
         "ms-vscode.cpptools-extension-pack",
         "mhutchie.git-graph",
         "ms-azuretools.vscode-docker",
-        "trond-snekvik.kconfig-lang",
-        "trond-snekvik.devicetree",
-        "ms-vscode.vscode-serial-monitor"
+        "nordic-semiconductor.nrf-kconfig",
+        "nordic-semiconductor.nrf-devicetree",
+        "ms-vscode.vscode-serial-monitor",
+        "ms-vscode.cmake-tools"
       ]
     }
   },
-  "postCreateCommand": "sudo apt update && sudo apt install usbutils && cd /workdir && west init && west update && cd zephyr && source zephyr-env.sh",
   "postAttachCommand": "cat /workdir/zephyr/VERSION",
 
   "mounts": [{"source": "/dev", "target": "/dev", "type": "bind"}],
-  "runArgs": ["--group-add=dialout"]
+  "runArgs": ["--device-cgroup-rule=c 166:* rmw", "--group-add=dialout"]
 }
