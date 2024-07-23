@@ -18,6 +18,7 @@
       ]
     }
   },
+  "postCreateCommand": "west zephyr-export",
   "postAttachCommand": "cat /workdir/zephyr/VERSION",
 
   "mounts": [{"source": "/dev", "target": "/dev", "type": "bind"}, {"source": "${localEnv:HOME}/zephyrproject", "target": "/workdir", "type": "bind"}],
