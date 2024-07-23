@@ -1,7 +1,5 @@
 {
-  "dockerFile": "Dockerfile",
-
-  //"image": "ghcr.io/zephyrproject-rtos/zephyr-build:latest",
+  "image": "ghcr.io/zephyrproject-rtos/zephyr-build:latest",
 
   "forwardPorts": [3000],
   "customizations": {
@@ -22,6 +20,6 @@
   },
   "postAttachCommand": "cat /workdir/zephyr/VERSION",
 
-  "mounts": [{"source": "/dev", "target": "/dev", "type": "bind"}],
+  "mounts": [{"source": "/dev", "target": "/dev", "type": "bind"}, {"source": "${localEnv:HOME}/zephyrproject", "target": "/workdir", "type": "bind"}],
   "runArgs": ["--device-cgroup-rule=c 166:* rmw", "--group-add=dialout"]
 }
