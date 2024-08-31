@@ -14,16 +14,7 @@
                 "command": "west"
             },
             "args": [
-                "build",
-                "-p",
-                "auto",
-                "-b",
-                "xiao_esp32c3",
-                "--",
-                "-DCMAKE_EXPORT_COMPILE_COMMANDS=1"
-            ],
-            "problemMatcher": [
-                "$gcc"
+                "build"
             ]
         },
         {
