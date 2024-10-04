@@ -4,6 +4,29 @@
     "version": "2.0.0",
     "tasks": [
         {
+            "label": "West build xiao_esp32c3",
+            "type": "shell",
+            "group": {
+                "kind": "build",
+                "isDefault": false
+            },
+            "linux": {
+                "command": "west"
+            },
+            "args": [
+                "build",
+                "-p",
+                "auto",
+                "-b",
+                "xiao_esp32c3",
+                "--",
+                "-DCMAKE_EXPORT_COMPILE_COMMANDS=1"
+            ],
+            "problemMatcher": [
+                "$gcc"
+            ]
+        },
+        {
             "label": "West build",
             "type": "shell",
             "group": {
